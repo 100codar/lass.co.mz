@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Lass Skincare | Produtos Naturais para Cuidados da Pele</title>
+    <meta name="description" content="Descubra a Lass Skincare, marca sul-africana de produtos naturais para cuidados da pele. Soluções para manchas, acne, hidratação e envelhecimento, com envio para todo Moçambique.">
+    <meta name="keywords" content="skincare natural, beleza, produtos naturais, pele radiante, Moçambique, África do Sul, sérum vitamina c, sabonete cúrcuma">
+
+    <!-- Fonts: Playfair Display (Titulos) & Plus Jakarta Sans (Corpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            sand: '#F7F4EF',
+                            cream: '#EFEAE1',
+                            warmBg: '#FAF8F5',
+                            terracotta: '#C87D55',
+                            olive: '#6A7059',
+                            dark: '#1C1A17',
+                            muted: '#7A756E',
+                            accent: '#D4A373'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* Smooth Scrolling Native Backup */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F4EF;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C87D55;
+            border-radius: 4px;
+        }
+
+        /* Underline Micro-interaction */
+        .hover-underline {
+            position: relative;
+        }
+        .hover-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: currentColor;
+            transform-origin: bottom right;
+            transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .hover-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Glass / Soft blur effect */
+        .glass-nav {
+            background: rgba(247, 244, 239, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Modal Overlay */
+        .lightbox-modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-brand-warmBg text-brand-dark font-sans selection:bg-brand-terracotta selection:text-white overflow-x-hidden">
+
+    <!-- HEADER / NAVIGATION -->
+    <header id="navbar" class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300 border-b border-brand-cream/60">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="text-2xl md:text-3xl font-serif tracking-widest text-brand-dark font-semibold uppercase">
+                Lass <span class="text-xs tracking-widest block font-sans font-light text-brand-terracotta -mt-1">Skincare</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center space-x-10 text-xs uppercase tracking-widest font-medium text-brand-dark/80">
+                <a href="#sobre" class="hover-underline hover:text-brand-terracotta transition-colors">Sobre</a>
+                <a href="#produtos" class="hover-underline hover:text-brand-terracotta transition-colors">Coleção</a>
+                <a href="#diferenciais" class="hover-underline hover:text-brand-terracotta transition-colors">Qualidade</a>
+                <a href="#galeria" class="hover-underline hover:text-brand-terracotta transition-colors">Galeria</a>
+                <a href="#revendedores" class="hover-underline hover:text-brand-terracotta transition-colors">Revenda</a>
+                <a href="#contacto" class="hover-underline hover:text-brand-terracotta transition-colors">Contacto</a>
+            </nav>
+
+            <!-- CTA Header -->
+            <div class="hidden sm:flex items-center space-x-4">
+                <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20Lass%20Skincare." 
+                   target="_blank" 
+                   class="inline-block px-6 py-2.5 bg-brand-dark text-brand-sand text-xs tracking-widest uppercase hover:bg-brand-terracotta transition-all duration-300 shadow-sm rounded-none">
+                    Encomendar
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menuBtn" class="lg:hidden text-brand-dark focus:outline-none p-2" aria-label="Abrir Menu">
+                <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-brand-sand border-b border-brand-cream px-6 py-8 transition-all duration-300">
+            <nav class="flex flex-col space-y-6 text-sm uppercase tracking-wider font-medium">
+                <a href="#sobre" class="mobile-link text-brand-dark">Sobre</a>
+                <a href="#produtos" class="mobile-link text-brand-dark">Coleção</a>
+                <a href="#diferenciais" class="mobile-link text-brand-dark">Qualidade</a>
+                <a href="#galeria" class="mobile-link text-brand-dark">Galeria</a>
+                <a href="#revendedores" class="mobile-link text-brand-dark">Revenda</a>
+                <a href="#contacto" class="mobile-link text-brand-dark">Contacto</a>
+                <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido." 
+                   target="_blank" 
+                   class="inline-block text-center py-3 bg-brand-terracotta text-white font-medium uppercase tracking-widest text-xs">
+                    Encomendar via WhatsApp
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center bg-brand-sand overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Content -->
+            <div class="lg:col-span-6 z-10 hero-text-container">
+                <div class="inline-flex items-center space-x-3 mb-6">
+                    <span class="w-8 h-[1px] bg-brand-terracotta"></span>
+                    <span class="text-xs uppercase tracking-widest text-brand-terracotta font-semibold">Skincare Natural • Qualidade Sul-Africana</span>
+                </div>
+                
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-normal text-brand-dark leading-[1.15] mb-6">
+                    Cuide da sua pele. <br>
+                    <span class="italic font-light text-brand-terracotta">Revele a sua melhor versão.</span>
+                </h1>
+                
+                <p class="text-base md:text-lg text-brand-muted font-light leading-relaxed mb-10 max-w-lg">
+                    Produtos naturais formulados para nutrir, proteger e iluminar a sua pele. Uma experiência de beleza autêntica, segura e adequada para o uso diário.
+                </p>
+
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-5">
+                    <a href="#produtos" class="px-8 py-4 bg-brand-dark text-brand-sand text-xs tracking-widest uppercase hover:bg-brand-terracotta transition-all duration-300 text-center shadow-lg hover:-translate-y-0.5">
+                        Ver Produtos
+                    </a>
+                    <a href="https://wa.me/258852088697" target="_blank" class="px-8 py-4 border border-brand-dark text-brand-dark text-xs tracking-widest uppercase hover:bg-brand-dark hover:text-brand-sand transition-all duration-300 text-center">
+                        Fale Connosco
+                    </a>
+                </div>
+
+                <!-- Subtle badge -->
+                <div class="mt-14 pt-8 border-t border-brand-cream flex items-center space-x-6 text-xs text-brand-muted">
+                    <div>
+                        <strong class="block text-xl font-serif text-brand-dark font-medium">7+ Anos</strong>
+                        De excelência no mercado
+                    </div>
+                    <div class="w-px h-8 bg-brand-cream"></div>
+                    <div>
+                        <strong class="block text-xl font-serif text-brand-dark font-medium">100% Natural</strong>
+                        Ingredientes selecionados
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image Banner -->
+            <div class="lg:col-span-6 relative hero-image-wrapper">
+                <div class="relative mx-auto max-w-md lg:max-w-none">
+                    <div class="aspect-[4/5] overflow-hidden bg-brand-cream shadow-2xl relative group">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=1000" 
+                             alt="Lass Skincare Rituais Naturais" 
+                             class="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 hero-img">
+                        <div class="absolute inset-0 bg-brand-dark/10"></div>
+                    </div>
+                    
+                    <!-- Floating Accent Card -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 shadow-xl max-w-xs hidden sm:block border-l-4 border-brand-terracotta">
+                        <p class="text-xs uppercase tracking-wider text-brand-muted font-semibold mb-1">Entregas Rápidas</p>
+                        <p class="text-sm font-serif text-brand-dark italic">"Enviamos para todas as províncias de Moçambique com carinho e segurança."</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SOBRE A LASS SECTION -->
+    <section id="sobre" class="py-24 md:py-32 bg-brand-warmBg">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+                
+                <!-- Imagery Editorial Block -->
+                <div class="lg:col-span-5 relative about-images">
+                    <div class="aspect-[3/4] overflow-hidden bg-brand-cream shadow-xl relative">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=800" 
+                             alt="Cuidados Naturais Lass" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 w-2/3 aspect-square overflow-hidden shadow-2xl border-4 border-brand-warmBg hidden md:block">
+                        <img src="https://images.unsplash.com/photo-1608248597260-8f21c172a6b2?auto=format&fit=crop&q=80&w=600" 
+                             alt="Textura de Creme Lass" 
+                             class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="lg:col-span-7 about-text">
+                    <span class="text-xs uppercase tracking-widest text-brand-terracotta font-semibold mb-3 block">Nossa História</span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-8 leading-tight">
+                        Uma jornada de cuidado que já dura 7 anos.
+                    </h2>
+                    
+                    <p class="text-brand-muted text-base md:text-lg leading-relaxed mb-6 font-light">
+                        A <strong class="text-brand-dark font-normal">Lass Skincare</strong> nasceu na África do Sul com o propósito de harmonizar o poder dos ingredientes naturais com as necessidades reais do quotidiano. Com aproximadamente 7 anos de experiência no mercado de vendas, a nossa marca tem sido um pilar de confiança para quem procura uma pele saudável, radiante e restaurada.
+                    </p>
+                    
+                    <p class="text-brand-muted text-base leading-relaxed mb-10 font-light">
+                        Expandindo a nossa presença para Moçambique, oferecemos fórmulas suaves e eficazes, desenvolvidas para atender aos mais variados tipos de pele e desafios cutâneos — desde hiperpigmentação até hidratação profunda.
+                    </p>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 pt-6 border-t border-brand-cream">
+                        <div>
+                            <span class="block text-2xl font-serif text-brand-dark font-medium">100%</span>
+                            <span class="text-xs text-brand-muted uppercase tracking-wider">Seguro & Diário</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-serif text-brand-dark font-medium">Sul-Africana</span>
+                            <span class="text-xs text-brand-muted uppercase tracking-wider">Origem Botânica</span>
+                        </div>
+                        <div>
+                            <span class="block text-2xl font-serif text-brand-dark font-medium">Moçambique</span>
+                            <span class="text-xs text-brand-muted uppercase tracking-wider">Envio Nacional</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HIGHLIGHTED FEATURED PRODUCTS (EDITORIAL SHOWCASE) -->
+    <section class="py-24 bg-brand-sand border-y border-brand-cream/60">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-brand-terracotta font-semibold mb-2 block">Destaques da Coleção</span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-brand-dark">Fórmulas Mais Desejadas</h2>
+                </div>
+                <p class="text-brand-muted text-sm max-w-md mt-4 md:mt-0 font-light">
+                    Uma seleção cuidada dos nossos produtos mais procurados para transformar o seu ritual diário de beleza.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Featured Item 1 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden bg-brand-cream mb-5 relative shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=600" 
+                             alt="Sérum Vitamina C" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brand-dark text-white text-[10px] uppercase tracking-widest px-2.5 py-1">Best-Seller</div>
+                    </div>
+                    <h3 class="text-xl font-serif text-brand-dark group-hover:text-brand-terracotta transition-colors">Sérum de Vitamina C</h3>
+                    <p class="text-xs text-brand-muted mt-1 font-light italic">"Para uma pele mais radiante e uniforme."</p>
+                    <a href="https://wa.me/258852088697?text=Olá,%20tenho%20interesse%20no%20Sérum%20de%20Vitamina%20C" target="_blank" class="mt-4 inline-block text-xs uppercase tracking-wider font-semibold text-brand-dark hover-underline">Encomendar via WhatsApp &rarr;</a>
+                </div>
+
+                <!-- Featured Item 2 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden bg-brand-cream mb-5 relative shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1608248597260-8f21c172a6b2?auto=format&fit=crop&q=80&w=600" 
+                             alt="Toner de Niacinamida" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brand-olive text-white text-[10px] uppercase tracking-widest px-2.5 py-1">Essencial</div>
+                    </div>
+                    <h3 class="text-xl font-serif text-brand-dark group-hover:text-brand-terracotta transition-colors">Toner de Niacinamida</h3>
+                    <p class="text-xs text-brand-muted mt-1 font-light italic">"Para uma pele equilibrada e refrescada."</p>
+                    <a href="https://wa.me/258852088697?text=Olá,%20tenho%20interesse%20no%20Toner%20de%20Niacinamida" target="_blank" class="mt-4 inline-block text-xs uppercase tracking-wider font-semibold text-brand-dark hover-underline">Encomendar via WhatsApp &rarr;</a>
+                </div>
+
+                <!-- Featured Item 3 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden bg-brand-cream mb-5 relative shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=600" 
+                             alt="Sabonete de Cúrcuma" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <h3 class="text-xl font-serif text-brand-dark group-hover:text-brand-terracotta transition-colors">Sabonete de Cúrcuma</h3>
+                    <p class="text-xs text-brand-muted mt-1 font-light italic">"Para uma pele mais clara e uniforme."</p>
+                    <a href="https://wa.me/258852088697?text=Olá,%20tenho%20interesse%20no%20Sabonete%20de%20Cúrcuma" target="_blank" class="mt-4 inline-block text-xs uppercase tracking-wider font-semibold text-brand-dark hover-underline">Encomendar via WhatsApp &rarr;</a>
+                </div>
+
+                <!-- Featured Item 4 -->
+                <div class="group cursor-pointer">
+                    <div class="aspect-[3/4] overflow-hidden bg-brand-cream mb-5 relative shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=600" 
+                             alt="Creme Hidratante" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <h3 class="text-xl font-serif text-brand-dark group-hover:text-brand-terracotta transition-colors">Creme Hidratante</h3>
+                    <p class="text-xs text-brand-muted mt-1 font-light italic">"Para uma pele macia e nutrida."</p>
+                    <a href="https://wa.me/258852088697?text=Olá,%20tenho%20interesse%20no%20Creme%20Hidratante" target="_blank" class="mt-4 inline-block text-xs uppercase tracking-wider font-semibold text-brand-dark hover-underline">Encomendar via WhatsApp &rarr;</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FULL PRODUCT CATALOG CATALOGUE SECTION -->
+    <section id="produtos" class="py-24 md:py-32 bg-brand-warmBg">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-xs uppercase tracking-widest text-brand-terracotta font-semibold mb-2 block">Catálogo Completo</span>
+                <h2 class="text-3xl md:text-5xl font-serif text-brand-dark">Encontre o cuidado ideal para a sua pele.</h2>
+                <div class="w-12 h-[1px] bg-brand-terracotta mx-auto mt-6"></div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Product Card -->
+                <div class="bg-white p-6 border border-brand-cream/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="aspect-square bg-brand-sand overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1608248597260-8f21c172a6b2?auto=format&fit=crop&q=80&w=500" alt="Tissue Oil" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-serif text-brand-dark mb-2">Tissue Oil</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed mb-6">Óleo corporal especialmente formulado para cuidado intensivo, regeneração e hidratação profunda da pele.</p>
+                    </div>
+                    <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20encomendar%20o%20Tissue%20Oil" target="_blank" class="w-full py-3 text-center border border-brand-dark text-brand-dark text-xs uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-colors">Pedir no WhatsApp</a>
+                </div>
+
+                <!-- Product Card -->
+                <div class="bg-white p-6 border border-brand-cream/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="aspect-square bg-brand-sand overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=500" alt="Manteiga Corporal" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-serif text-brand-dark mb-2">Manteiga Corporal</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed mb-6">Nutrição e hidratação de longa duração para garantir uma pele incrivelmente macia e sedosa.</p>
+                    </div>
+                    <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20encomendar%20a%20Manteiga%20Corporal" target="_blank" class="w-full py-3 text-center border border-brand-dark text-brand-dark text-xs uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-colors">Pedir no WhatsApp</a>
+                </div>
+
+                <!-- Product Card -->
+                <div class="bg-white p-6 border border-brand-cream/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="aspect-square bg-brand-sand overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=500" alt="Roll On" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-serif text-brand-dark mb-2">Roll On Natural</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed mb-6">Cuidado prático, suave e seguro para o dia a dia, mantendo a proteção sem agredir a pele.</p>
+                    </div>
+                    <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20encomendar%20o%20Roll%20On" target="_blank" class="w-full py-3 text-center border border-brand-dark text-brand-dark text-xs uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-colors">Pedir no WhatsApp</a>
+                </div>
+
+                <!-- Product Card -->
+                <div class="bg-white p-6 border border-brand-cream/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="aspect-square bg-brand-sand overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=500" alt="Sabonete de Cúrcuma" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-serif text-brand-dark mb-2">Sabonete de Cúrcuma</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed mb-6">Limpeza revitalizante com as propriedades iluminadoras e purificantes da cúrcuma natural.</p>
+                    </div>
+                    <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20encomendar%20o%20Sabonete%20de%20Cúrcuma" target="_blank" class="w-full py-3 text-center border border-brand-dark text-brand-dark text-xs uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-colors">Pedir no WhatsApp</a>
+                </div>
+
+                <!-- Product Card -->
+                <div class="bg-white p-6 border border-brand-cream/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="aspect-square bg-brand-sand overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=500" alt="Máscara Facial" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-serif text-brand-dark mb-2">Máscara Facial</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed mb-6">Tratamento de cuidado profundo para purificar, suavizar e renovar a vitalidade do seu rosto.</p>
+                    </div>
+                    <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20encomendar%20a%20Máscara%20Facial" target="_blank" class="w-full py-3 text-center border border-brand-dark text-brand-dark text-xs uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-colors">Pedir no WhatsApp</a>
+                </div>
+
+                <!-- Product Card -->
+                <div class="bg-white p-6 border border-brand-cream/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="aspect-square bg-brand-sand overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=500" alt="Esfoliante Limão" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-serif text-brand-dark mb-2">Esfoliante Facial de Limão</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed mb-6">Ajuda a remover impurezas e células mortas, deixando a textura da pele incrivelmente suave.</p>
+                    </div>
+                    <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20encomendar%20o%20Esfoliante%20de%20Limão" target="_blank" class="w-full py-3 text-center border border-brand-dark text-brand-dark text-xs uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-colors">Pedir no WhatsApp</a>
+                </div>
+
+                <!-- Product Card -->
+                <div class="bg-white p-6 border border-brand-cream/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="aspect-square bg-brand-sand overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=500" alt="Esfoliante Cúrcuma" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-serif text-brand-dark mb-2">Esfoliante Facial de Cúrcuma</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed mb-6">Esfoliação delicada aliada à tonificação para uma tez visivelmente mais equilibrada.</p>
+                    </div>
+                    <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20encomendar%20o%20Esfoliante%20de%20Cúrcuma" target="_blank" class="w-full py-3 text-center border border-brand-dark text-brand-dark text-xs uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-colors">Pedir no WhatsApp</a>
+                </div>
+
+                <!-- Product Card -->
+                <div class="bg-white p-6 border border-brand-cream/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="aspect-square bg-brand-sand overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=500" alt="Chá de Cúrcuma" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-serif text-brand-dark mb-2">Chá de Cúrcuma</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed mb-6">Infundido com o poder antioxidante da cúrcuma para cuidar da beleza de dentro para fora.</p>
+                    </div>
+                    <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20encomendar%20o%20Chá%20de%20Cúrcuma" target="_blank" class="w-full py-3 text-center border border-brand-dark text-brand-dark text-xs uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-colors">Pedir no WhatsApp</a>
+                </div>
+
+                <!-- Product Card -->
+                <div class="bg-white p-6 border border-brand-cream/80 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
+                    <div>
+                        <div class="aspect-square bg-brand-sand overflow-hidden mb-6">
+                            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=500" alt="Creme Anti-Idade" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <h3 class="text-xl font-serif text-brand-dark mb-2">Creme Anti-Rugas & Anti-Idade</h3>
+                        <p class="text-sm text-brand-muted font-light leading-relaxed mb-6">Cuidado direcionado para devolver a firmeza, elasticidade e suavizar linhas de expressão.</p>
+                    </div>
+                    <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20encomendar%20o%20Creme%20Anti-Idade" target="_blank" class="w-full py-3 text-center border border-brand-dark text-brand-dark text-xs uppercase tracking-widest hover:bg-brand-dark hover:text-white transition-colors">Pedir no WhatsApp</a>
+                </div>
+
+            </div>
+
+            <!-- "And much more" Footer note -->
+            <div class="mt-16 text-center">
+                <p class="text-base font-serif italic text-brand-dark">E muito mais produtos disponíveis na nossa linha...</p>
+                <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20ver%20o%20catálogo%20completo" target="_blank" class="mt-4 inline-flex items-center space-x-2 text-xs uppercase tracking-widest text-brand-terracotta font-semibold hover-underline">
+                    <span>Solicitar Catálogo Completo em PDF</span>
+                    <span>&rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKIN CONCERNS / NEEDS SECTION -->
+    <section class="py-24 bg-brand-sand border-t border-brand-cream/80">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="max-w-xl mb-16">
+                <span class="text-xs uppercase tracking-widest text-brand-terracotta font-semibold mb-2 block">Cuidado Personalizado</span>
+                <h2 class="text-3xl md:text-5xl font-serif text-brand-dark">Soluções para diferentes necessidades.</h2>
+                <p class="text-brand-muted text-sm mt-4 font-light">Descubra produtos pensados para enriquecer a sua rotina diária de skincare de acordo com o seu tipo de pele.</p>
+            </div>
+
+            <!-- Horizontal Scroll / Grid of Concerns -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="p-6 bg-brand-warmBg border border-brand-cream/60 hover:border-brand-terracotta transition-colors">
+                    <span class="text-xs text-brand-terracotta font-mono mb-2 block">01</span>
+                    <h3 class="text-lg font-serif text-brand-dark">Acne & Oleosidade</h3>
+                </div>
+                <div class="p-6 bg-brand-warmBg border border-brand-cream/60 hover:border-brand-terracotta transition-colors">
+                    <span class="text-xs text-brand-terracotta font-mono mb-2 block">02</span>
+                    <h3 class="text-lg font-serif text-brand-dark">Eczema & Sensibilidade</h3>
+                </div>
+                <div class="p-6 bg-brand-warmBg border border-brand-cream/60 hover:border-brand-terracotta transition-colors">
+                    <span class="text-xs text-brand-terracotta font-mono mb-2 block">03</span>
+                    <h3 class="text-lg font-serif text-brand-dark">Manchas Escuras</h3>
+                </div>
+                <div class="p-6 bg-brand-warmBg border border-brand-cream/60 hover:border-brand-terracotta transition-colors">
+                    <span class="text-xs text-brand-terracotta font-mono mb-2 block">04</span>
+                    <h3 class="text-lg font-serif text-brand-dark">Micose Cutânea</h3>
+                </div>
+                <div class="p-6 bg-brand-warmBg border border-brand-cream/60 hover:border-brand-terracotta transition-colors">
+                    <span class="text-xs text-brand-terracotta font-mono mb-2 block">05</span>
+                    <h3 class="text-lg font-serif text-brand-dark">Pele Seca & Desidratada</h3>
+                </div>
+                <div class="p-6 bg-brand-warmBg border border-brand-cream/60 hover:border-brand-terracotta transition-colors">
+                    <span class="text-xs text-brand-terracotta font-mono mb-2 block">06</span>
+                    <h3 class="text-lg font-serif text-brand-dark">Falta de Brilho</h3>
+                </div>
+                <div class="p-6 bg-brand-warmBg border border-brand-cream/60 hover:border-brand-terracotta transition-colors">
+                    <span class="text-xs text-brand-terracotta font-mono mb-2 block">07</span>
+                    <h3 class="text-lg font-serif text-brand-dark">Sinais de Envelhecimento</h3>
+                </div>
+                <div class="p-6 bg-brand-warmBg border border-brand-cream/60 hover:border-brand-terracotta transition-colors">
+                    <span class="text-xs text-brand-terracotta font-mono mb-2 block">08</span>
+                    <h3 class="text-lg font-serif text-brand-dark">Tom Irregular</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORQUE LASS / COUNTERS SECTION -->
+    <section id="diferenciais" class="py-24 bg-brand-dark text-brand-sand relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-xs uppercase tracking-widest text-brand-accent font-semibold mb-2 block">Diferenciais</span>
+                <h2 class="text-3xl md:text-5xl font-serif text-white">Qualidade em que pode confiar.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 text-center" id="stats-grid">
+                
+                <div class="p-6 border border-white/10 bg-white/5">
+                    <span class="block text-4xl lg:text-5xl font-serif text-brand-accent mb-2 stat-counter" data-target="7">0</span>
+                    <h3 class="text-xs uppercase tracking-widest text-white font-medium mb-2">Anos de Experiência</h3>
+                    <p class="text-xs text-white/60 font-light">Atuação sólida no mercado de cosmética natural.</p>
+                </div>
+
+                <div class="p-6 border border-white/10 bg-white/5">
+                    <span class="block text-4xl lg:text-5xl font-serif text-brand-accent mb-2">100%</span>
+                    <h3 class="text-xs uppercase tracking-widest text-white font-medium mb-2">Produtos Naturais</h3>
+                    <p class="text-xs text-white/60 font-light">Ingredientes extraídos com respeito à natureza.</p>
+                </div>
+
+                <div class="p-6 border border-white/10 bg-white/5">
+                    <span class="block text-4xl lg:text-5xl font-serif text-brand-accent mb-2">África do Sul</span>
+                    <h3 class="text-xs uppercase tracking-widest text-white font-medium mb-2">Qualidade Comprovada</h3>
+                    <p class="text-xs text-white/60 font-light">Formulação e produção com padrões rigorosos.</p>
+                </div>
+
+                <div class="p-6 border border-white/10 bg-white/5">
+                    <span class="block text-4xl lg:text-5xl font-serif text-brand-accent mb-2">Todos</span>
+                    <h3 class="text-xs uppercase tracking-widest text-white font-medium mb-2">Tipos de Pele</h3>
+                    <p class="text-xs text-white/60 font-light">Fórmulas adaptadas às mais variadas necessidades.</p>
+                </div>
+
+                <div class="p-6 border border-white/10 bg-white/5">
+                    <span class="block text-4xl lg:text-5xl font-serif text-brand-accent mb-2">11</span>
+                    <h3 class="text-xs uppercase tracking-widest text-white font-medium mb-2">Províncias</h3>
+                    <p class="text-xs text-white/60 font-light">Entregas em todo o território moçambicano.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- MASONRY GALLERY SECTION -->
+    <section id="galeria" class="py-24 md:py-32 bg-brand-warmBg">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-brand-terracotta font-semibold mb-2 block">Experiência Visual</span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-brand-dark">Lass em cada detalhe.</h2>
+                </div>
+                <p class="text-brand-muted text-sm max-w-sm font-light mt-4 md:mt-0">Texturas, rituais e a autenticidade da nossa linha no dia a dia.</p>
+            </div>
+
+            <!-- Asymmetric Editorial Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6" id="gallery-grid">
+                
+                <div class="md:col-span-8 group relative overflow-hidden bg-brand-cream cursor-pointer gallery-item shadow-sm" data-src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=1200" data-title="Texturas Suaves">
+                    <div class="aspect-[16/9]">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=1000" alt="Textura Lass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-brand-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 text-white">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brand-cream font-medium">Texturas Naturais</span>
+                            <h4 class="text-lg font-serif">Toque aveludado e absorção rápida</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-4 group relative overflow-hidden bg-brand-cream cursor-pointer gallery-item shadow-sm" data-src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=800" data-title="Ritual de Cuidado">
+                    <div class="aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=600" alt="Ritual Lass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-brand-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 text-white">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brand-cream font-medium">Auto-cuidado</span>
+                            <h4 class="text-lg font-serif">Momentos de bem-estar diário</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-4 group relative overflow-hidden bg-brand-cream cursor-pointer gallery-item shadow-sm" data-src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=800" data-title="Ingredientes Puros">
+                    <div class="aspect-[4/5]">
+                        <img src="https://images.unsplash.com/photo-1607006344380-b6775a0824a7?auto=format&fit=crop&q=80&w=600" alt="Ingredientes Lass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-brand-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 text-white">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brand-cream font-medium">Cúrcuma & Botânica</span>
+                            <h4 class="text-lg font-serif">Ingredientes selecionados</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-8 group relative overflow-hidden bg-brand-cream cursor-pointer gallery-item shadow-sm" data-src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=1200" data-title="Design e Embalagem">
+                    <div class="aspect-[16/9]">
+                        <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=1000" alt="Embalagem Lass" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute inset-0 bg-brand-dark/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6 text-white">
+                        <div>
+                            <span class="text-xs uppercase tracking-widest text-brand-cream font-medium">Elegância Minimalista</span>
+                            <h4 class="text-lg font-serif">Embalagens pensadas para a sua rotina</h4>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightbox" class="fixed inset-0 bg-brand-dark/90 z-50 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-6">
+        <button id="closeLightbox" class="absolute top-6 right-6 text-white text-3xl font-light focus:outline-none">&times;</button>
+        <div class="max-w-4xl w-full text-center">
+            <img id="lightboxImg" src="" alt="Ampliado" class="max-h-[80vh] mx-auto shadow-2xl object-contain mb-4">
+            <p id="lightboxCaption" class="text-white font-serif text-lg italic"></p>
+        </div>
+    </div>
+
+    <!-- TESTIMONIALS SLIDER SECTION -->
+    <section class="py-24 bg-brand-sand border-t border-brand-cream">
+        <div class="max-w-5xl mx-auto px-6 md:px-12 text-center">
+            <span class="text-xs uppercase tracking-widest text-brand-terracotta font-semibold mb-2 block">Depoimentos</span>
+            <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-16">Quem experimenta, recomenda.</h2>
+
+            <!-- Simple Interactive Testimonial Box -->
+            <div class="relative bg-brand-warmBg p-8 md:p-14 border border-brand-cream shadow-sm max-w-3xl mx-auto min-h-[260px] flex flex-col justify-between">
+                <div id="testimonialContainer">
+                    <p id="testimText" class="text-lg md:text-xl font-serif italic text-brand-dark mb-6 leading-relaxed">
+                        "O sabonete de cúrcuma e o sérum de vitamina C mudaram completamente a textura da minha pele em poucas semanas. As manchas reduziram visivelmente!"
+                    </p>
+                    <div class="flex justify-center text-brand-terracotta text-sm mb-2">★★★★★</div>
+                    <h4 id="testimAuthor" class="text-xs uppercase tracking-widest text-brand-dark font-semibold">Amina M. — Maputo</h4>
+                </div>
+
+                <div class="flex justify-center space-x-4 mt-8">
+                    <button id="prevTestim" class="w-10 h-10 rounded-full border border-brand-dark/20 flex items-center justify-center text-brand-dark hover:bg-brand-dark hover:text-white transition-colors" aria-label="Anterior">&larr;</button>
+                    <button id="nextTestim" class="w-10 h-10 rounded-full border border-brand-dark/20 flex items-center justify-center text-brand-dark hover:bg-brand-dark hover:text-white transition-colors" aria-label="Próximo">&rarr;</button>
+                </div>
+            </div>
+            <p class="text-[11px] text-brand-muted mt-4 font-light italic">*Depoimentos demonstrativos preparados para consolidação de feedback de clientes reais.</p>
+        </div>
+    </section>
+
+    <!-- RESELLER OPPORTUNITY SECTION -->
+    <section id="revendedores" class="py-24 md:py-32 bg-brand-cream/40">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6">
+                    <span class="text-xs uppercase tracking-widest text-brand-terracotta font-semibold mb-2 block">Oportunidade de Negócio</span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-brand-dark mb-6">Transforme a Lass em uma oportunidade para si.</h2>
+                    <p class="text-brand-muted text-base leading-relaxed font-light mb-8">
+                        A Lass Skincare oferece oportunidades exclusivas de negócio para revendedores independentes em todas as províncias de Moçambique. Construa o seu próprio negócio de beleza com produtos de alta procura, reputação consolidada de 7 anos e excelente margem.
+                    </p>
+
+                    <ul class="space-y-4 mb-10 text-sm text-brand-dark font-medium">
+                        <li class="flex items-center space-x-3">
+                            <span class="w-2 h-2 rounded-full bg-brand-terracotta"></span>
+                            <span>Margens atrativas e rendimento autónomo</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="w-2 h-2 rounded-full bg-brand-terracotta"></span>
+                            <span>Produtos naturais com alta aceitação no mercado</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <span class="w-2 h-2 rounded-full bg-brand-terracotta"></span>
+                            <span>Apoio e catálogo completo para revenda</span>
+                        </li>
+                    </ul>
+
+                    <a href="https://wa.me/258852088697?text=Olá!%20Tenho%20interesse%20em%20ser%20um%20revendedor%20Lass%20Skincare." target="_blank" class="inline-block px-8 py-4 bg-brand-terracotta text-white text-xs uppercase tracking-widest font-semibold hover:bg-brand-dark transition-colors shadow-md">
+                        Quero Ser Revendedor
+                    </a>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="aspect-[4/3] bg-brand-cream overflow-hidden shadow-2xl relative">
+                        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&q=80&w=1000" alt="Oportunidade Revendedor Lass" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW TO BUY & PAYMENT SECTION -->
+    <section class="py-24 bg-brand-sand border-y border-brand-cream">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                
+                <!-- How to buy -->
+                <div class="lg:col-span-7">
+                    <span class="text-xs uppercase tracking-widest text-brand-terracotta font-semibold mb-2 block">Passo a Passo</span>
+                    <h2 class="text-3xl font-serif text-brand-dark mb-10">Comprar é simples.</h2>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="p-6 bg-white border border-brand-cream">
+                            <span class="text-xs font-mono text-brand-terracotta mb-2 block">01</span>
+                            <h3 class="font-serif text-lg mb-2">Escolha os produtos</h3>
+                            <p class="text-xs text-brand-muted font-light leading-relaxed">Navegue pela nossa linha e selecione os cuidados ideias para o seu objetivo.</p>
+                        </div>
+                        <div class="p-6 bg-white border border-brand-cream">
+                            <span class="text-xs font-mono text-brand-terracotta mb-2 block">02</span>
+                            <h3 class="font-serif text-lg mb-2">Entre em contacto</h3>
+                            <p class="text-xs text-brand-muted font-light leading-relaxed">Envie a sua lista via WhatsApp diretamente para a nossa equipa.</p>
+                        </div>
+                        <div class="p-6 bg-white border border-brand-cream">
+                            <span class="text-xs font-mono text-brand-terracotta mb-2 block">03</span>
+                            <h3 class="font-serif text-lg mb-2">Confirme a encomenda</h3>
+                            <p class="text-xs text-brand-muted font-light leading-relaxed">Efetue o pagamento parcial de confirmação de forma rápida e segura.</p>
+                        </div>
+                        <div class="p-6 bg-white border border-brand-cream">
+                            <span class="text-xs font-mono text-brand-terracotta mb-2 block">04</span>
+                            <h3 class="font-serif text-lg mb-2">Receba onde estiver</h3>
+                            <p class="text-xs text-brand-muted font-light leading-relaxed">Enviamos para todas as províncias de Moçambique 🇲🇿.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment conditions -->
+                <div class="lg:col-span-5 bg-brand-warmBg p-8 md:p-10 border border-brand-cream shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-brand-terracotta font-semibold mb-2 block">Condições Transparentes</span>
+                        <h2 class="text-2xl font-serif text-brand-dark mb-4">Formas de Pagamento</h2>
+                        
+                        <p class="text-xs text-brand-muted leading-relaxed font-light mb-6">
+                            Facilidade e segurança no momento da sua compra:
+                            <strong class="text-brand-dark font-normal block mt-1">50% no momento do pedido + 50% após adquirir/receber os produtos.</strong>
+                        </p>
+
+                        <div class="space-y-4 mb-8">
+                            <div class="p-4 bg-white border border-brand-cream/80">
+                                <span class="text-xs text-brand-terracotta uppercase font-bold tracking-wider block">E-Mola</span>
+                                <span class="text-lg font-serif font-medium text-brand-dark">86 888 8679</span>
+                                <span class="text-xs block text-brand-muted mt-0.5">Erca Salomão</span>
+                            </div>
+
+                            <div class="p-4 bg-white border border-brand-cream/80">
+                                <span class="text-xs text-brand-terracotta uppercase font-bold tracking-wider block">M-Pesa</span>
+                                <span class="text-lg font-serif font-medium text-brand-dark">85 208 8697</span>
+                                <span class="text-xs block text-brand-muted mt-0.5">Erca Salomão</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/258852088697?text=Olá!%20Gostaria%20de%20fazer%20um%20pedido%20e%20confirmar%20pagamento." target="_blank" class="w-full py-4 bg-brand-dark text-brand-sand text-xs uppercase tracking-widest text-center hover:bg-brand-terracotta transition-colors">
+                        Enviar Pedido pelo WhatsApp
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FINAL CTA HERO BANNER -->
+    <section class="py-28 md:py-36 bg-brand-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&q=80&w=1600" alt="Background Lass" class="w-full h-full object-cover">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-6xl font-serif mb-6 leading-tight">A sua pele merece cuidado.</h2>
+            <p class="text-brand-cream/80 text-base md:text-lg font-light max-w-xl mx-auto mb-10">
+                Descubra a linha Lass Skincare e encontre os produtos ideais para revelar a sua luminosidade natural.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-5">
+                <a href="#produtos" class="w-full sm:w-auto px-9 py-4 bg-brand-terracotta text-white text-xs uppercase tracking-widest font-semibold hover:bg-white hover:text-brand-dark transition-colors">
+                    Ver Produtos
+                </a>
+                <a href="https://wa.me/258852088697" target="_blank" class="w-full sm:w-auto px-9 py-4 border border-white/40 text-white text-xs uppercase tracking-widest hover:bg-white hover:text-brand-dark transition-colors">
+                    Falar no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto" class="bg-brand-dark border-t border-white/10 text-brand-cream/70 text-xs py-16">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+            
+            <!-- Col 1 -->
+            <div class="md:col-span-5">
+                <a href="#" class="text-2xl font-serif tracking-widest text-white uppercase font-semibold block mb-4">
+                    Lass <span class="text-xs tracking-widest font-sans font-light text-brand-terracotta block">Skincare</span>
+                </a>
+                <p class="max-w-sm font-light text-brand-cream/60 leading-relaxed mb-6">
+                    Marca sul-africana de produtos naturais para cuidados da pele, dedicada a nutrir, regenerar e realçar a beleza autêntica de cada pele.
+                </p>
+                <div class="text-white/80 space-y-1 font-light">
+                    <p>Produtos da África do Sul 🇿🇦</p>
+                    <p>Envios para todas as províncias de Moçambique 🇲🇿</p>
+                </div>
+            </div>
+
+            <!-- Col 2 -->
+            <div class="md:col-span-3">
+                <h4 class="text-white text-xs uppercase tracking-widest font-semibold mb-4">Navegação</h4>
+                <ul class="space-y-2.5 font-light">
+                    <li><a href="#" class="hover:text-white transition-colors">Início</a></li>
+                    <li><a href="#sobre" class="hover:text-white transition-colors">Sobre nós</a></li>
+                    <li><a href="#produtos" class="hover:text-white transition-colors">Coleção de Produtos</a></li>
+                    <li><a href="#galeria" class="hover:text-white transition-colors">Galeria</a></li>
+                    <li><a href="#revendedores" class="hover:text-white transition-colors">Tornar-se Revendedor</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3 -->
+            <div class="md:col-span-4">
+                <h4 class="text-white text-xs uppercase tracking-widest font-semibold mb-4">Atendimento & Pedidos</h4>
+                <div class="space-y-3 font-light">
+                    <p>WhatsApp: <a href="https://wa.me/258852088697" class="text-white underline">+258 85 208 8697</a></p>
+                    <p>WhatsApp Secundário: <a href="https://wa.me/258868888679" class="text-white underline">+258 86 888 8679</a></p>
+                    <p>Atendimento: Segunda a Sábado (08h - 18h)</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between font-light text-[11px] text-brand-cream/50">
+            <p>&copy; 2026 Lass Skincare. Todos os direitos reservados.</p>
+            <p class="mt-2 md:mt-0">Desenvolvido com excelência visual & elegância natural.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/258852088697?text=Olá!%20Vim%20pelo%20website%20da%20Lass%20Skincare." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform duration-300 flex items-center justify-center"
+       aria-label="Contactar no WhatsApp">
+        <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+        </svg>
+    </a>
+
+    <!-- JAVASCRIPT LOGIC (GSAP Animations & Mobile Menu) -->
+    <script>
+        // Initialize GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Hero Animations
+        gsap.from('.hero-text-container > *', {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.hero-image-wrapper', {
+            opacity: 0,
+            scale: 0.95,
+            duration: 1.2,
+            delay: 0.3,
+            ease: 'power3.out'
+        });
+
+        // About Section Scroll Animation
+        gsap.from('.about-images', {
+            scrollTrigger: {
+                trigger: '#sobre',
+                start: 'top 80%'
+            },
+            opacity: 0,
+            x: -40,
+            duration: 1,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.about-text', {
+            scrollTrigger: {
+                trigger: '#sobre',
+                start: 'top 80%'
+            },
+            opacity: 0,
+            x: 40,
+            duration: 1,
+            ease: 'power3.out'
+        });
+
+        // Counter Animation
+        const counters = document.querySelectorAll('.stat-counter');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            ScrollTrigger.create({
+                trigger: counter,
+                start: 'top 85%',
+                onEnter: () => {
+                    let count = 0;
+                    const updateCount = () => {
+                        const speed = 50;
+                        const inc = target / speed;
+                        if (count < target) {
+                            count += inc;
+                            counter.innerText = Math.ceil(count);
+                            setTimeout(updateCount, 40);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                }
+            });
+        });
+
+        // Lightbox Gallery Functionality
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const closeLightbox = document.getElementById('closeLightbox');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const src = item.getAttribute('data-src');
+                const title = item.getAttribute('data-title');
+                lightboxImg.src = src;
+                lightboxCaption.innerText = title;
+                lightbox.classList.remove('hidden');
+                setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
+            });
+        });
+
+        closeLightbox.addEventListener('click', () => {
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => lightbox.classList.add('hidden'), 300);
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.add('opacity-0');
+                setTimeout(() => lightbox.classList.add('hidden'), 300);
+            }
+        });
+
+        // Simple Testimonial Slider
+        const testimonials = [
+            {
+                quote: "O sabonete de cúrcuma e o sérum de vitamina C mudaram completamente a textura da minha pele em poucas semanas. As manchas reduziram visivelmente!",
+                author: "Amina M. — Maputo"
+            },
+            {
+                quote: "Uso a manteiga corporal diariamente e a hidratação dura o dia inteiro. Sensação fantástica e natural sem deixar a pele oleosa.",
+                author: "Clara S. — Beira"
+            },
+            {
+                quote: "Tornei-me revendedora Lass há 6 meses e os produtos vendem-se sozinhos devido à excelente qualidade e resultados reais dos clientes.",
+                author: "Vanessa T. — Nampula"
+            }
+        ];
+
+        let currentTestim = 0;
+        const testimText = document.getElementById('testimText');
+        const testimAuthor = document.getElementById('testimAuthor');
+        const prevTestim = document.getElementById('prevTestim');
+        const nextTestim = document.getElementById('nextTestim');
+
+        function updateTestimonial(index) {
+            gsap.to('#testimonialContainer', {
+                opacity: 0,
+                duration: 0.3,
+                onComplete: () => {
+                    testimText.innerText = `"${testimonials[index].quote}"`;
+                    testimAuthor.innerText = testimonials[index].author;
+                    gsap.to('#testimonialContainer', { opacity: 1, duration: 0.3 });
+                }
+            });
+        }
+
+        prevTestim.addEventListener('click', () => {
+            currentTestim = (currentTestim - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial(currentTestim);
+        });
+
+        nextTestim.addEventListener('click', () => {
+            currentTestim = (currentTestim + 1) % testimonials.length;
+            updateTestimonial(currentTestim);
+        });
+    </script>
+</body>
+</html>
